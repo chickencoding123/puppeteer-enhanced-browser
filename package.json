@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-enhanced-browser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Headless puppeteer with additional plugins and settings",
   "keywords": [
     "browser",
