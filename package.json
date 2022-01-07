@@ -27,7 +27,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint lib/**/*.ts --fix"
   },
   "bugs": {
     "url": "https://github.com/IRoninCoder/puppeteer-enhanced-browser/issues"
@@ -41,6 +42,13 @@
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
     "jest": "^27.4.5",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
