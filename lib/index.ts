@@ -19,7 +19,7 @@ Puppeteer.use(AdblockerPlugin({ blockTrackers: true }))
 
 /** Puppeteer launch options */
 export const PuppeteerLaunchOptions: Required<Parameters<typeof Puppeteer['launch']>>[0] = {
-  dumpio: true,
+  dumpio: false,
   devtools: false,
   headless: true,
   pipe: true,
@@ -98,7 +98,7 @@ export const CloseBrowser = async () => {
  * @param opts Navigation and operation options
  * @returns Results array of operation names and results
  */
-export async function GoToPage<TEvaluateResult = unknown> (url: string, pageOptions: GoToPageOptions = {}): Promise<GoToPageResult<TEvaluateResult>> {
+export async function GoToPage<TEvaluateResult = unknown>(url: string, pageOptions: GoToPageOptions = {}): Promise<GoToPageResult<TEvaluateResult>> {
   const result: GoToPageResult<TEvaluateResult> = {}
   const opts = {
     evaluateArgs: [],
@@ -164,8 +164,8 @@ export const AddPlugin = (plugin: PuppeteerExtraPlugin) => {
 }
 
 export const RemovePlugin = (name: string) => {
-  const pluginIndex = Puppeteer.plugins.findIndex((p) => p._isPuppeteerExtraPlugin && p.constructor.name === name)
-  if (!~pluginIndex) {
+  const pluginIndex = Puppeteer.plugins.findIndex((p) => p._isPuppeteerExtraPlugin && p.name === name)
+  if (~pluginIndex) {
     Puppeteer.plugins.splice(pluginIndex, 1)
   } else {
     throw Error(`puppeteer-enhanced-browser: unable to find a plugin with that name "${name}"`)

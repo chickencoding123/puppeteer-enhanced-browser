@@ -15,6 +15,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    "@typescript-eslint/no-non-null-assertion": "off"
+    'space-before-function-paren': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off'
   }
 }
