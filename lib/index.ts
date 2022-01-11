@@ -18,7 +18,7 @@ Puppeteer.use(StealthPlugin())
 Puppeteer.use(AdblockerPlugin({ blockTrackers: true }))
 
 /** Puppeteer launch options */
-export const PuppeteerLaunchOptions: Parameters<typeof Puppeteer['launch']>[0] = {
+export const PuppeteerLaunchOptions: Required<Parameters<typeof Puppeteer['launch']>>[0] = {
   dumpio: true,
   devtools: false,
   headless: true,
@@ -75,6 +75,10 @@ type GoToPageResult<TEvaluateResult> = {
  * Return a new or existing instance of a headless browser
  */
 export const GetBrowser = async () => {
+  if (!browser) {
+    browser = await Puppeteer.launch(PuppeteerLaunchOptions)
+  }
+
   return browser
 }
 
@@ -107,10 +111,7 @@ export async function GoToPage<TEvaluateResult = unknown> (url: string, pageOpti
     ...pageOptions
   }
 
-  if (!browser) {
-    browser = await Puppeteer.launch(PuppeteerLaunchOptions)
-  }
-
+  const browser = await GetBrowser()
   const page = await browser.newPage()
 
   await page.setViewport({ width: opts.windowSize.width, height: opts.windowSize.height, deviceScaleFactor: 1 })
