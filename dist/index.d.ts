@@ -1,12 +1,15 @@
-import { Browser, Page } from 'puppeteer'
+import { Browser, Page, SerializableOrJSHandle } from 'puppeteer';
+import Puppeteer, { PuppeteerExtraPlugin } from 'puppeteer-extra';
 /**
  * Largest common screen size
  * https://w3codemasters.in/most-common-screen-resolutions/ and https://www.rapidtables.com/web/dev/screen-resolution-statistics.html
  * Also overrides the 800x600 from stealth plugin ATM 10-6-2020
  */
-export declare const DEFAULT_WINDOW_WIDTH = 1366
-export declare const DEFALT_WINDOW_HEIGHT = 768
-export declare const DEFAULT_TILE_SIZE = 512
+export declare const DEFAULT_WINDOW_WIDTH = 1366;
+export declare const DEFALT_WINDOW_HEIGHT = 768;
+export declare const DEFAULT_TILE_SIZE = 512;
+/** Puppeteer launch options */
+export declare const PuppeteerLaunchOptions: Required<Parameters<typeof Puppeteer['launch']>>[0];
 declare type GoToPageSnapshotOption = {
     tileSize: number;
     limit?: number;
@@ -25,9 +28,9 @@ declare type GoToPageOptions = {
         height: number;
     };
     /** Evaluate a script inside the target page */
-    evaluate?: (...args: any[]) => any;
+    evaluate?: (...args: unknown[]) => unknown;
     /** Args to pass to the evaluate function */
-    evaluateArgs?: any[];
+    evaluateArgs?: SerializableOrJSHandle[];
     /** Take screenshot of the page after navigation. You can control the tile size or rely on default tile size */
     snapshots?: GoToPageSnapshotOption | boolean;
     /** Return HTML content of the page */
@@ -37,7 +40,7 @@ declare type GoToPageOptions = {
     /** Script to inject into the page, if any */
     script?: Parameters<Page['addScriptTag']>[0];
 };
-declare type GoToPageResult<TEvaluateResult = any> = {
+declare type GoToPageResult<TEvaluateResult> = {
     evaluate?: TEvaluateResult;
     content?: string;
     snapshots?: GoToPageSnapshotResult[];
@@ -45,16 +48,18 @@ declare type GoToPageResult<TEvaluateResult = any> = {
 /**
  * Return a new or existing instance of a headless browser
  */
-export declare const GetBrowser: () => Promise<Browser>
+export declare const GetBrowser: () => Promise<Browser>;
 /**
  * Close the headless browser.
  */
-export declare const CloseBrowser: () => Promise<void>
+export declare const CloseBrowser: () => Promise<void>;
 /**
  * Navigates to a page and executes a bunch of operations on that page
  * @param url Url of the target page
  * @param opts Navigation and operation options
  * @returns Results array of operation names and results
  */
-export declare const GoToPage: <TEvaluateResult = any>(url: string, pageOptions?: GoToPageOptions) => Promise<GoToPageResult<TEvaluateResult>>
-export {}
+export declare function GoToPage<TEvaluateResult = unknown>(url: string, pageOptions?: GoToPageOptions): Promise<GoToPageResult<TEvaluateResult>>;
+export declare const AddPlugin: (plugin: PuppeteerExtraPlugin) => void;
+export declare const RemovePlugin: (name: string) => void;
+export {};
