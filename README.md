@@ -11,7 +11,8 @@ Headless puppeteer with additional plugins and settings
 
 ## Features
 - Ad block and stealth plugins
-- Automatic tiles for snapshots
+- Add or remove plugins
+- Automatic tiles for page snapshots
 - A few puppeteer glitch workarounds
 
 ## How to use
@@ -49,7 +50,7 @@ const { snapshots, evaluate } = await GoToPage('https://example.com', {
 })
 
 ```
-Evalulation with args passed between your code context and puppeteer's browser context:
+## Evalulation with args passed between your code context and puppeteer's browser context
 ```js
 const { evaluate } = await GoToPage('https://example.com', {
   evaluate: function (a, b) { /* evaluate will equal the body width */
@@ -58,7 +59,7 @@ const { evaluate } = await GoToPage('https://example.com', {
   evaluateArgs: [1, 2]
 })
 ```
-Adjusting the tile size and/or snapshot limits:
+## Adjusting the tile size and/or snapshot limits
 ```js
 const { evaluate, snapshots } = await GoToPage('https://example.com', {
   snapshots: {
@@ -67,7 +68,7 @@ const { evaluate, snapshots } = await GoToPage('https://example.com', {
   }
 });
 ```
-Script and/or style injections:
+## Script and/or style injections
 ```js
 const { evaluate } = await GoToPage('https://example.com', {
   style: `body { width: 1000px !important; }`,
@@ -77,4 +78,32 @@ const { evaluate } = await GoToPage('https://example.com', {
   }
 });
 console.log(evaluate)
+```
+
+## Add/Remove plugins
+```js
+import { PuppeteerExtraPlugin } from 'puppeteer-extra-plugin'
+import { AddPlugin, RemovePlugin } from 'puppeteer-enhanced-browser'
+
+class TestPlugin extends PuppeteerExtraPlugin {
+  constructor(opts = {}) {
+    super(opts)
+  }
+
+  get name() {
+    return 'testplugin'
+  }
+}
+
+// add a new plugin
+AddPlugin(new TestPlugin())
+// remove the default adblock plugin
+RemovePlugin('adblock')
+```
+
+## Modify puppeteer launch options
+You can setup launch option before calling `GoToPage`, `GetBrowser` or by calling `CloseBrowser` and then executing one of the former functions.
+```js
+import PuppeteerLaunchOptions from 'puppeteer-extra-plugin'
+PuppeteerLaunchOptions.dumpio = true
 ```
