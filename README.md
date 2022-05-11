@@ -5,7 +5,7 @@ puppeteer-enhanced-browser
 
 Headless puppeteer with additional plugins and settings
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chickencoding123/puppeteer-enhanced-browser/blob/main/LICENSE) [![npm](https://img.shields.io/npm/v/puppeteer-enhanced-browser)](https://www.npmjs.com/package/puppeteer-enhanced-browser) [![License](https://img.shields.io/npm/l/puppeteer-enhanced-browser)](https://github.com/chickencoding123/puppeteer-enhanced-browser/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/puppeteer-enhanced-browser)](https://www.npmjs.com/package/puppeteer-enhanced-browser) [![License](https://img.shields.io/npm/l/puppeteer-enhanced-browser)](https://github.com/chickencoding123/puppeteer-enhanced-browser/blob/main/LICENSE)
 
 
 </div>
