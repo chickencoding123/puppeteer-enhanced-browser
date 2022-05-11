@@ -5,7 +5,8 @@ puppeteer-enhanced-browser
 
 Headless puppeteer with additional plugins and settings
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/IRoninCoder/puppeteer-enhanced-browser/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chickencoding123/puppeteer-enhanced-browser/blob/main/LICENSE) [![npm](https://img.shields.io/npm/v/puppeteer-enhanced-browser)](https://www.npmjs.com/package/puppeteer-enhanced-browser) [![License](https://img.shields.io/npm/l/puppeteer-enhanced-browser)](https://github.com/chickencoding123/puppeteer-enhanced-browser/blob/main/LICENSE)
+
 
 </div>
 
@@ -104,6 +105,6 @@ RemovePlugin('adblock')
 ## Modify puppeteer launch options
 You can setup launch option before calling `GoToPage`, `GetBrowser` or by calling `CloseBrowser` and then executing one of the former functions.
 ```js
-import PuppeteerLaunchOptions from 'puppeteer-extra-plugin'
+import PuppeteerLaunchOptions from 'puppeteer-enhanced-browser'
 PuppeteerLaunchOptions.dumpio = true
 ```

@@ -9,8 +9,8 @@
     "snapshot",
     "screenshot"
   ],
-  "author": "ironincoder <ironincoder@gmail.com>",
-  "homepage": "https://github.com/IRoninCoder/puppeteer-enhanced-browser#readme",
+  "author": "chickencoding123",
+  "homepage": "https://github.com/chickencoding123/puppeteer-enhanced-browser#readme",
   "license": "MIT",
   "main": "dist/index.js",
   "directories": {
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IRoninCoder/puppeteer-enhanced-browser.git"
+    "url": "git+https://github.com/chickencoding123/puppeteer-enhanced-browser.git"
   },
   "scripts": {
     "build": "tsc",
@@ -31,7 +31,7 @@
     "lint": "eslint lib/**/*.ts --fix"
   },
   "bugs": {
-    "url": "https://github.com/IRoninCoder/puppeteer-enhanced-browser/issues"
+    "url": "https://github.com/chickencoding123/puppeteer-enhanced-browser/issues"
   },
   "dependencies": {
     "puppeteer": "^10.0.0",
