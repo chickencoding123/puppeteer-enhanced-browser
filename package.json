@@ -34,7 +34,7 @@
     "url": "https://github.com/chickencoding123/puppeteer-enhanced-browser/issues"
   },
   "dependencies": {
-    "puppeteer": "^10.0.0",
+    "puppeteer": "^14.0.0",
     "puppeteer-extra": "^3.2.3",
     "puppeteer-extra-plugin-adblocker": "^2.12.0",
     "puppeteer-extra-plugin-stealth": "^2.9.0"
@@ -49,6 +49,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
+    "image-validation": "^1.0.0",
     "jest": "^27.4.5",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"

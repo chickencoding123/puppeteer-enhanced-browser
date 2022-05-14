@@ -30,6 +30,7 @@ export const PuppeteerLaunchOptions: Required<Parameters<typeof Puppeteer['launc
     '--force-gpu-mem-available-mb=9000',
     // https://github.com/puppeteer/puppeteer/issues/804
     '--js-flags="--max-old-space-size=9000"',
+    // some websites run scripts for a while, specially AJAX calls
     '--script-delay=30000'
   ]
 }
